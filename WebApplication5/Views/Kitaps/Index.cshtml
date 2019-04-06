@@ -1,0 +1,51 @@
+﻿@model IEnumerable<WebApplication5.Models.Kitap>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KitabinTuru.KitapTuruAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Yazari.YazarAdiSoyadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KitapAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KitapBasimTarihi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KitabinTuru.KitapTuruAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Yazari.YazarAdiSoyadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KitapAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KitapBasimTarihi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.KitapId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.KitapId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.KitapId })
+        </td>
+    </tr>
+}
+
+</table>
